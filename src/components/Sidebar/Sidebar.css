@@ -1,0 +1,41 @@
+/* src/components/Sidebar.css */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: white;
+    padding: 20px;
+    position: fixed; /* Mantiene el panel fijo */
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease; /* Animación al abrir/cerrar */
+}
+
+.sidebar.closed {
+    transform: translateX(-100%); /* Ocultar sidebar */
+}
+
+.sidebar-title {
+    margin-bottom: 20px;
+}
+
+.sidebar-menu {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0;
+}
+
+.sidebar-link {
+    color: white;
+    text-decoration: none; /* Sin subrayado */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.sidebar-link:hover {
+    background-color: #495057; /* Color de fondo al pasar el mouse */
+}
+
+.sidebar-link i {
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}

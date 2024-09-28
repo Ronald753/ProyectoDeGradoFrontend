@@ -1,0 +1,31 @@
+.create-producto {
+    max-width: 600px;
+    margin: auto;
+}
+
+.create-producto h2 {
+    color: #333;
+}
+
+.create-producto .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+.create-producto .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.create-producto .form-check-label {
+    margin-left: 0.5rem;
+}
+
+.create-producto .btn {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.create-producto .btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}

@@ -1,0 +1,26 @@
+/* src/components/ShowIngredientes.css */
+.App {
+    padding: 20px;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: center;
+}
+
+.modal-header {
+    background-color: #343a40;
+    color: white;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+}
+
+.input-group-text {
+    background-color: #343a40;
+    color: white;
+}

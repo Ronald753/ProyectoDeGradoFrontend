@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Sidebar from './components/Sidebar/Sidebar';
+import ShowCategorias from './components/Categorias/ShowCategorias'; // Asegúrate de que la ruta sea correcta
+import ShowIngredientes from './components/Ingredientes/ShowIngredientes';
+import ShowProductos from './components/Productos/ShowProductos';
+import Home from './components/Home/Home'; // Crear un componente Home
+import CreateProducto from './components/Productos/CreateProducto';
+import ShowMenus from './components/Menu/ShowMenus';
+import EditMenu from './components/Menu/EditMenu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => {
+    return (
+        <Router>
+            <Sidebar />
+            <div style={{ marginLeft: '250px', padding: '20px' }}> {/* Espacio para el contenido */}
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/categorias" element={<ShowCategorias />} />
+                    <Route path="/ingredientes" element={<ShowIngredientes />} />
+                    <Route path="/productos" element={<ShowProductos />} />
+                    <Route path="/crearproducto" element={<CreateProducto />} />
+                    <Route path="/menus" element={<ShowMenus />} />
+                    <Route path="/edit-menu/:id_menu" element={<EditMenu />} /> 
+                    {/* Agrega más rutas según sea necesario */}
+                </Routes>
+            </div>
+        </Router>
+    );
+};
 
 export default App;

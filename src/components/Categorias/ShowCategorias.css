@@ -1,0 +1,87 @@
+/* Estilos para el contenedor principal */
+.container-fluid {
+    margin-top: 20px;
+}
+
+/* Estilos para las tablas */
+.table {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.table th {
+    background-color: #343a40; /* Color de fondo de la cabecera */
+    color: #ffffff; /* Color de texto de la cabecera */
+    text-align: center;
+}
+
+.table td {
+    text-align: center; /* Centrar el texto de las celdas */
+}
+
+/* Estilos para el botón de añadir */
+.btn-dark {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-dark:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Estilos para los botones de acción */
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Estilos para el modal */
+.modal-header {
+    background-color: #343a40; /* Color de fondo del encabezado del modal */
+    color: #ffffff; /* Color de texto del encabezado del modal */
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.input-group-text {
+    background-color: #e9ecef; /* Color de fondo del texto de entrada */
+}
+
+/* Estilos para el input */
+.form-control {
+    border-radius: 0.25rem;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #007bff; /* Color del borde en el foco */
+}

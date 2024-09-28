@@ -1,0 +1,73 @@
+/* Estilos para la tabla */
+.table {
+    margin-top: 20px;
+    border: 1px solid #ccc;
+}
+
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+/* Colores para las acciones */
+.btn-warning {
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+/* Estilos del modal */
+.modal-header {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.modal-footer {
+    justify-content: space-between;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Input group styling */
+.input-group-text {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.input-group input {
+    border-radius: 0;
+}
+
+/* Estilos de los botones dentro del modal */
+#btnGuardar {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    font-weight: bold;
+}
+
+#btnCerrar {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+/* Estilo del botón para añadir un nuevo producto */
+.btn-dark {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: white;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+    border-color: #1d2124;
+}
