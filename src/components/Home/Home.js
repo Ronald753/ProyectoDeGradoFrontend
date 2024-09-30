@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div>
             <h1>Página de Inicio</h1>
-            <p>Bienvenido a tu aplicación de gestión de categorías y productos.</p>
+            <p>Bienvenido a tu aplicación de gestión.</p>
         </div>
     );
 };

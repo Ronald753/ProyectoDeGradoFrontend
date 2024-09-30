@@ -10,6 +10,10 @@ export const getProductosDesactives = async () => {
     return axios.get(`${baseUrl}desactives/`);
 };
 
+export const getProductoById =async (id) => {
+    return axios.get(`${baseUrl}${id}/`)
+}
+
 export const postProducto = async (categoria) => {
     return axios.post(`${baseUrl}add/`, categoria);
 };

@@ -9,6 +9,7 @@ import Home from './components/Home/Home'; // Crear un componente Home
 import CreateProducto from './components/Productos/CreateProducto';
 import ShowMenus from './components/Menu/ShowMenus';
 import EditMenu from './components/Menu/EditMenu';
+import EditProducto from './components/Productos/EditProducto';
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/categorias" element={<ShowCategorias />} />
                     <Route path="/ingredientes" element={<ShowIngredientes />} />
                     <Route path="/productos" element={<ShowProductos />} />
+                    <Route path="/productos/editarproducto/:id" element={<EditProducto />} />
                     <Route path="/crearproducto" element={<CreateProducto />} />
                     <Route path="/menus" element={<ShowMenus />} />
                     <Route path="/edit-menu/:id_menu" element={<EditMenu />} /> 

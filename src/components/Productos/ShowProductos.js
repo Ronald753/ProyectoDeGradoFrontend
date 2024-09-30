@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate
 import { show_alerta } from '../../utils/functions';
 import {
   getProductos,
-  getProductosDesactives, // Asegúrate de importar esta función
+  getProductosDesactives,
   changeProductoState,
   updateProducto,
-} from '../../services/productosService'; // Ajusta los servicios según tu proyecto
-import './ShowProductos.css'; // Importa el archivo CSS para estilos
+} from '../../services/productosService';
+import './ShowProductos.css';
 
 const ShowProductos = () => {
+    const navigate = useNavigate(); // Inicializa el hook useNavigate
     const [productos, setProductos] = useState([]);
     const [productosDesactivados, setProductosDesactivados] = useState([]);
     const [id_producto, setId_producto] = useState('');
@@ -21,29 +23,20 @@ const ShowProductos = () => {
 
     useEffect(() => {
         fetchProductos();
-        fetchProductosDesactivados(); // Llama a la función para obtener productos desactivados
+        fetchProductosDesactivados();
     }, []);
 
     const fetchProductos = async () => {
         const respuesta = await getProductos();
-        setProductos(respuesta.data); // Guarda los productos activos
+        setProductos(respuesta.data);
     };
 
     const fetchProductosDesactivados = async () => {
         const respuesta = await getProductosDesactives();
-        setProductosDesactivados(respuesta.data); // Guarda los productos desactivados
-    };
-
-    const openModal = (id_producto, nombre_producto, descripcion, precio) => {
-        setId_producto(id_producto);
-        setNombre_producto(nombre_producto);
-        setDescripcion(descripcion);
-        setPrecio(precio);
-        setTitle('Editar Producto');
+        setProductosDesactivados(respuesta.data);
     };
 
     const handleUpdate = async () => {
-        // Lógica para actualizar el producto
         try {
             await updateProducto(id_producto, {
                 nombre_producto,
@@ -51,8 +44,8 @@ const ShowProductos = () => {
                 precio,
             });
             show_alerta('Producto actualizado con éxito', 'success');
-            fetchProductos(); // Actualiza la lista de productos
-            fetchProductosDesactivados(); // Actualiza la lista de productos desactivados
+            fetchProductos();
+            fetchProductosDesactivados();
         } catch (error) {
             show_alerta('Error al actualizar el producto', 'error');
         }
@@ -75,8 +68,8 @@ const ShowProductos = () => {
                             `Producto ${estado ? 'desactivado' : 'activado'} con éxito`,
                             'success'
                         );
-                        fetchProductos(); // Actualiza la lista de productos
-                        fetchProductosDesactivados(); // Actualiza la lista de productos desactivados
+                        fetchProductos();
+                        fetchProductosDesactivados();
                     })
                     .catch(() => {
                         show_alerta('Error al cambiar el estado del producto', 'error');
@@ -117,17 +110,8 @@ const ShowProductos = () => {
                                             <td>{producto.ingredientes}</td>
                                             <td>
                                                 <button
-                                                    onClick={() =>
-                                                        openModal(
-                                                            producto.id_producto,
-                                                            producto.nombre_producto,
-                                                            producto.descripcion,
-                                                            producto.precio
-                                                        )
-                                                    }
-                                                    className='btn btn-warning'
-                                                    data-bs-toggle='modal'
-                                                    data-bs-target='#modalProductos'>
+                                                    onClick={() => navigate(`/productos/editarproducto/${producto.id_producto}`)} // Redirige a EditProducto.js
+                                                    className='btn btn-warning'>
                                                     <i className='fa-solid fa-edit'></i> Editar
                                                 </button>
                                                 &nbsp;
@@ -190,81 +174,6 @@ const ShowProductos = () => {
                                     ))}
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Modal para editar productos */}
-            <div id='modalProductos' className='modal fade' aria-hidden='true'>
-                <div className='modal-dialog'>
-                    <div className='modal-content'>
-                        <div className='modal-header'>
-                            <h5>{title}</h5>
-                            <button
-                                type='button'
-                                className='btn-close'
-                                data-bs-dismiss='modal'
-                                aria-label='Close'></button>
-                        </div>
-                        <div className='modal-body'>
-                            {/* Campos para editar productos */}
-                            <div className='input-group mb-3'>
-                                <span className='input-group-text'>
-                                    <i className='fa-solid fa-burger'></i>
-                                </span>
-                                <input
-                                    type='text'
-                                    id='nombre'
-                                    className='form-control'
-                                    placeholder='Nombre del producto'
-                                    value={nombre_producto}
-                                    onChange={(e) => setNombre_producto(e.target.value)}
-                                />
-                            </div>
-                            <div className='input-group mb-3'>
-                                <span className='input-group-text'>
-                                    <i className='fa-solid fa-info-circle'></i>
-                                </span>
-                                <input
-                                    type='text'
-                                    id='descripcion'
-                                    className='form-control'
-                                    placeholder='Descripción del producto'
-                                    value={descripcion}
-                                    onChange={(e) => setDescripcion(e.target.value)}
-                                />
-                            </div>
-                            <div className='input-group mb-3'>
-                                <span className='input-group-text'>
-                                    <i className='fa-solid fa-dollar-sign'></i>
-                                </span>
-                                <input
-                                    type='number'
-                                    id='precio'
-                                    className='form-control'
-                                    placeholder='Precio'
-                                    value={precio}
-                                    onChange={(e) => setPrecio(e.target.value)}
-                                />
-                            </div>
-                            <div className='d-grid col-6 mx-auto'>
-                                <button
-                                    id='btnActualizar'
-                                    className='btn btn-primary'
-                                    onClick={handleUpdate} // Maneja la actualización
-                                >
-                                    Actualizar
-                                </button>
-                            </div>
-                        </div>
-                        <div className='modal-footer'>
-                            <button
-                                type='button'
-                                className='btn btn-secondary'
-                                data-bs-dismiss='modal'>
-                                Cerrar
-                            </button>
                         </div>
                     </div>
                 </div>
