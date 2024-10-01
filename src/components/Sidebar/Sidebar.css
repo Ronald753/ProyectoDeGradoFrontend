@@ -1,18 +1,21 @@
 /* src/components/Sidebar.css */
+
+/* Sidebar base (para pantallas grandes) */
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #343a40; /* Color de fondo oscuro */
+    background-color: #343a40;
     color: white;
     padding: 20px;
-    position: fixed; /* Mantiene el panel fijo */
+    position: fixed;
     left: 0;
     top: 0;
-    transition: transform 0.3s ease; /* Animación al abrir/cerrar */
+    transition: transform 0.3s ease;
 }
 
+/* Estilos para ocultar el sidebar cuando esté cerrado */
 .sidebar.closed {
-    transform: translateX(-100%); /* Ocultar sidebar */
+    transform: translateX(-100%);
 }
 
 .sidebar-title {
@@ -20,22 +23,47 @@
 }
 
 .sidebar-menu {
-    list-style-type: none; /* Elimina los puntos de la lista */
+    list-style-type: none;
     padding: 0;
 }
 
 .sidebar-link {
     color: white;
-    text-decoration: none; /* Sin subrayado */
+    text-decoration: none;
     display: flex;
     align-items: center;
     padding: 10px;
 }
 
 .sidebar-link:hover {
-    background-color: #495057; /* Color de fondo al pasar el mouse */
+    background-color: #495057;
 }
 
 .sidebar-link i {
-    margin-right: 10px; /* Espacio entre el icono y el texto */
+    margin-right: 10px;
+}
+
+/* Estilos responsive (para pantallas pequeñas) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Sidebar más pequeño en pantallas pequeñas */
+        transform: translateX(-100%); /* Ocultar sidebar por defecto en móviles */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Mostrar sidebar cuando esté abierto */
+    }
+
+    .hamburger {
+        display: block; /* Mostrar botón de hamburguesa */
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #343a40;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000; /* Asegura que el botón esté por encima de otros elementos */
+    }
 }

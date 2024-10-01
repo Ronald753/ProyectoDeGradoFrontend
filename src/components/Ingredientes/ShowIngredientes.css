@@ -1,26 +1,75 @@
-/* src/components/ShowIngredientes.css */
-.App {
+.show-ingredientes {
     padding: 20px;
 }
 
-.table {
-    margin-top: 20px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.table th, .table td {
+.add-button {
+    margin-bottom: 20px;
     text-align: center;
 }
 
-.modal-header {
-    background-color: #343a40;
+.btn-add {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.table-section {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.badge-active {
+    background-color: #28a745;
     color: white;
 }
 
-.modal-footer {
-    background-color: #f8f9fa;
+.badge-inactive {
+    background-color: #dc3545;
+    color: white;
 }
 
-.input-group-text {
-    background-color: #343a40;
+.btn-edit {
+    background-color: #ffc107;
+    color: #fff;
+}
+
+.btn-desactivate {
+    background-color: #dc3545;
     color: white;
+}
+
+.btn-activate {
+    background-color: #28a745;
+    color: white;
+}
+
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+}
+
+/* Estilos para mostrar el modal */
+.modal.show {
+    display: block; /* Mostrar el modal cuando tenga la clase 'show' */
+}
+
+.form-group {
+    margin-bottom: 15px;
 }

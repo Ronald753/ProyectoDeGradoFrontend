@@ -83,12 +83,12 @@ const ShowProductos = () => {
     return (
         <div className='App'>
             <div className='container-fluid'>
-                <div className='row mt-3'>
-                    <div className='col-12 col-lg-8 offset-lg-2'>
+                <div className='row mt-4'>
+                    <div className='col-12'>
                         <h3>Productos Activos</h3>
-                        <div className='table-responsive'>
-                            <table className='table table-bordered'>
-                                <thead>
+                        <div className='table-responsive-lg'>
+                            <table className='table table-hover table-striped table-bordered'>
+                                <thead className='table-dark'>
                                     <tr>
                                         <th>#</th>
                                         <th>Producto</th>
@@ -134,46 +134,51 @@ const ShowProductos = () => {
                             </table>
                         </div>
 
-                        <h3>Productos Desactivados</h3>
-                        <div className='table-responsive'>
-                            <table className='table table-bordered'>
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Producto</th>
-                                        <th>Descripción</th>
-                                        <th>Precio</th>
-                                        <th>Estado</th>
-                                        <th>Ingredientes</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-                                <tbody className='table-group-divider'>
-                                    {productosDesactivados.map((producto, i) => (
-                                        <tr key={producto.id_producto}>
-                                            <td>{i + 1}</td>
-                                            <td>{producto.nombre_producto}</td>
-                                            <td>{producto.descripcion}</td>
-                                            <td>{producto.precio}</td>
-                                            <td>{producto.estado ? 'Activo' : 'Desactivado'}</td>
-                                            <td>{producto.ingredientes}</td>
-                                            <td>
-                                                <button
-                                                    onClick={() =>
-                                                        changeState(
-                                                            producto.id_producto,
-                                                            producto.nombre_producto,
-                                                            producto.estado
-                                                        )
-                                                    }
-                                                    className='btn btn-success'>
-                                                    <i className='fa-solid fa-check'></i> Activar
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
+
+                        <div className='row mt-4'>
+                            <div className='col-12'>
+                            <h3>Productos Desactivados</h3>
+                                <div className='table-responsive-lg'>
+                                    <table className='table table-hover table-striped table-bordered'>
+                                        <thead className='table-dark'>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Producto</th>
+                                                <th>Descripción</th>
+                                                <th>Precio</th>
+                                                <th>Estado</th>
+                                                <th>Ingredientes</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className='table-group-divider'>
+                                            {productosDesactivados.map((producto, i) => (
+                                                <tr key={producto.id_producto}>
+                                                    <td>{i + 1}</td>
+                                                    <td>{producto.nombre_producto}</td>
+                                                    <td>{producto.descripcion}</td>
+                                                    <td>{producto.precio}</td>
+                                                    <td>{producto.estado ? 'Activo' : 'Desactivado'}</td>
+                                                    <td>{producto.ingredientes}</td>
+                                                    <td>
+                                                        <button
+                                                            onClick={() =>
+                                                                changeState(
+                                                                    producto.id_producto,
+                                                                    producto.nombre_producto,
+                                                                    producto.estado
+                                                                )
+                                                            }
+                                                            className='btn btn-success'>
+                                                            <i className='fa-solid fa-check'></i> Activar
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

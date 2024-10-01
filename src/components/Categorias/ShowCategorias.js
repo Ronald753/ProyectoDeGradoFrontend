@@ -10,6 +10,7 @@ import {
     changeCategoriaState 
 } from '../../services/categoriasService';
 import './ShowCategorias.css';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Importar Bootstrap
 
 const ShowCategorias = () => {
     const [categorias, setCategorias] = useState([]);
@@ -104,26 +105,26 @@ const ShowCategorias = () => {
 
     return (
         <div className='container-fluid'>
-            <div className='row mt-3'>
-                <div className='col-12 col-md-4 offset-md-4'>
+            <div className='row mt-3 justify-content-center'>
+                <div className='col-md-4'>
                     <div className='d-grid mx-auto'>
                         <button 
                             onClick={() => openModal(1)} 
-                            className='btn btn-dark' 
+                            className='btn btn-dark btn-lg' 
                             data-bs-toggle='modal' 
                             data-bs-target='#modalCategorias'>
-                            <i className='fa-solid fa-circle-plus'></i> Añadir
+                            <i className='fa-solid fa-circle-plus'></i> Añadir Categoria
                         </button>
                     </div>
                 </div>
             </div>
 
             <div className='row mt-4'>
-                <div className='col-12 col-lg-10 offset-lg-1'>
+                <div className='col-12'>
                     <h4>Categorías Activas</h4>
-                    <div className='table-responsive'>
-                        <table className='table table-bordered table-striped'>
-                            <thead>
+                    <div className='table-responsive-lg'>
+                        <table className='table table-hover table-striped table-bordered'>
+                            <thead className='table-dark'>
                                 <tr>
                                     <th>#</th>
                                     <th>Categoria</th>
@@ -131,25 +132,28 @@ const ShowCategorias = () => {
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='table-group-divider'>
                                 {categorias.map((categoria, i) => (
                                     <tr key={categoria.id_categoria}>
                                         <td>{(i + 1)}</td>
                                         <td>{categoria.nombre_categoria}</td>
-                                        <td>{categoria.estado ? 'Activo' : 'Desactivado'}</td>
+                                        <td>
+                                            <span className={`badge ${categoria.estado ? 'bg-success' : 'bg-danger'}`}>
+                                                {categoria.estado ? 'Activo' : 'Desactivado'}
+                                            </span>
+                                        </td>
                                         <td>
                                             <button 
                                                 onClick={() => openModal(2, categoria.id_categoria, categoria.nombre_categoria)} 
-                                                className='btn btn-warning' 
+                                                className='btn btn-warning me-2' 
                                                 data-bs-toggle='modal' 
                                                 data-bs-target='#modalCategorias'>
                                                 <i className='fa-solid fa-edit'></i> Editar
                                             </button>
-                                            &nbsp;
                                             <button 
                                                 onClick={() => changeState(categoria.id_categoria, categoria.nombre_categoria, categoria.estado)} 
-                                                className='btn btn-danger'>
-                                                <i className='fa-solid fa-trash'></i> {categoria.estado ? 'Desactivar' : 'Activar'}
+                                                className={`btn ${categoria.estado ? 'btn-danger' : 'btn-success'}`}>
+                                                <i className={`fa-solid ${categoria.estado ? 'fa-trash' : 'fa-check'}`}></i> {categoria.estado ? 'Desactivar' : 'Activar'}
                                             </button>
                                         </td>
                                     </tr>
@@ -158,51 +162,54 @@ const ShowCategorias = () => {
                         </table>
                     </div>
                 </div>
-
-                <div className='col-12 col-lg-10 offset-lg-1 mt-4'>
-                    <h4>Categorías Desactivadas</h4>
-                    <div className='table-responsive'>
-                        <table className='table table-bordered table-striped'>
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Categoria</th>
-                                    <th>Estado</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {categoriasDesactivadas.map((categoria, i) => (
-                                    <tr key={categoria.id_categoria}>
-                                        <td>{(i + 1)}</td>
-                                        <td>{categoria.nombre_categoria}</td>
-                                        <td>{categoria.estado ? 'Activo' : 'Desactivado'}</td>
-                                        <td>
-                                            <button 
-                                                onClick={() => changeState(categoria.id_categoria, categoria.nombre_categoria, categoria.estado)} 
-                                                className='btn btn-success'>
-                                                <i className='fa-solid fa-check'></i> {categoria.estado ? 'Desactivar' : 'Activar'}
-                                            </button>
-                                        </td>
+                <div className='row mt-4'>
+                    <div className='col-12'>
+                        <h4 className="text-center">Categorías Desactivadas</h4>
+                        <div className='table-responsive-lg'>
+                            <table className='table table-hover table-striped table-bordered'>
+                                <thead className='table-dark'>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Categoria</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody className='table-group-divider'>
+                                    {categoriasDesactivadas.map((categoria, i) => (
+                                        <tr key={categoria.id_categoria}>
+                                            <td>{(i + 1)}</td>
+                                            <td>{categoria.nombre_categoria}</td>
+                                            <td>
+                                                <span className={`badge ${categoria.estado ? 'bg-success' : 'bg-danger'}`}>
+                                                    {categoria.estado ? 'Activo' : 'Desactivado'}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <button 
+                                                    onClick={() => changeState(categoria.id_categoria, categoria.nombre_categoria, categoria.estado)} 
+                                                    className={`btn ${categoria.estado ? 'btn-danger' : 'btn-success'}`}>
+                                                    <i className={`fa-solid ${categoria.estado ? 'fa-trash' : 'fa-check'}`}></i> {categoria.estado ? 'Desactivar' : 'Activar'}
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div id='modalCategorias' className='modal fade' aria-hidden='true'>
-                <div className='modal-dialog'>
+                <div className='modal-dialog modal-lg'>
                     <div className='modal-content'>
                         <div className='modal-header'>
-                            <h5 className='modal-title'>{title}</h5>
-                            <button type='button' className='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                            <h5>{title}</h5>
                         </div>
                         <div className='modal-body'>
-                            <input type='hidden' id='id'></input>
-                            <div className='input-group mb-3'>
-                                <span className='input-group-text'><i className='fa-solid fa-gift'></i></span>
+                            <div className='mb-3'>
+                                <label htmlFor='nombre' className='form-label'>Nombre Categoria</label>
                                 <input 
                                     type='text' 
                                     id='nombre' 
@@ -212,22 +219,10 @@ const ShowCategorias = () => {
                                     onChange={(e) => setNombre_categoria(e.target.value)} 
                                 />
                             </div>
-                            <div className='d-grid col-6 mx-auto'>
-                                <button 
-                                    onClick={validar} 
-                                    className='btn btn-success'>
-                                    <i className='fa-solid fa-floppy-disk'></i> Guardar
-                                </button>
-                            </div>
                         </div>
                         <div className='modal-footer'>
-                            <button 
-                                type='button' 
-                                id='btnCerrar' 
-                                className='btn btn-secondary' 
-                                data-bs-dismiss='modal'>
-                                Cerrar
-                            </button>
+                            <button type='button' className='btn btn-secondary' id='btnCerrar' data-bs-dismiss='modal'>Cerrar</button>
+                            <button type='button' className='btn btn-primary' onClick={validar}>Guardar</button>
                         </div>
                     </div>
                 </div> 

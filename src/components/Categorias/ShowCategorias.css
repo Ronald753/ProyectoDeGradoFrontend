@@ -1,28 +1,46 @@
 /* Estilos para el contenedor principal */
 .container-fluid {
     margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos para las tablas */
 .table {
-    border: 1px solid #dee2e6;
-    border-radius: 0.25rem;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .table th {
     background-color: #343a40; /* Color de fondo de la cabecera */
     color: #ffffff; /* Color de texto de la cabecera */
     text-align: center;
+    font-weight: bold;
+    padding: 12px;
 }
 
 .table td {
-    text-align: center; /* Centrar el texto de las celdas */
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+/* Estilos para las filas */
+.table tbody tr:hover {
+    background-color: #f1f3f5;
 }
 
 /* Estilos para el botón de añadir */
 .btn-dark {
     background-color: #007bff;
     border-color: #007bff;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
 .btn-dark:hover {
@@ -31,9 +49,10 @@
 }
 
 /* Estilos para los botones de acción */
-.btn-warning {
-    background-color: #ffc107;
-    border-color: #ffc107;
+.btn-warning, .btn-danger, .btn-success {
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 8px 12px;
 }
 
 .btn-warning:hover {
@@ -41,19 +60,9 @@
     border-color: #e0a800;
 }
 
-.btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-}
-
 .btn-danger:hover {
     background-color: #c82333;
     border-color: #bd2130;
-}
-
-.btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
 }
 
 .btn-success:hover {
@@ -63,25 +72,47 @@
 
 /* Estilos para el modal */
 .modal-header {
-    background-color: #343a40; /* Color de fondo del encabezado del modal */
-    color: #ffffff; /* Color de texto del encabezado del modal */
+    background-color: #343a40;
+    color: #ffffff;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 30px;
+    background-color: #f8f9fa;
 }
 
 .input-group-text {
-    background-color: #e9ecef; /* Color de fondo del texto de entrada */
+    background-color: #e9ecef;
+    border-radius: 8px 0 0 8px;
 }
 
 /* Estilos para el input */
 .form-control {
-    border-radius: 0.25rem;
+    border-radius: 0 8px 8px 0;
     border: 1px solid #ced4da;
+    padding: 10px;
+    font-size: 16px;
 }
 
 .form-control:focus {
-    box-shadow: none;
-    border-color: #007bff; /* Color del borde en el foco */
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-color: #007bff;
+}
+
+/* Estilos para los títulos */
+h4 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los botones dentro del modal */
+.modal-footer .btn-secondary {
+    border-radius: 8px;
+}
+
+.modal-footer .btn-success {
+    border-radius: 8px;
+    font-weight: bold;
 }
