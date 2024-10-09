@@ -50,6 +50,11 @@ const Sidebar = () => {
                             <i className="fa-solid fa-utensils"></i> Menus
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/usuarios" className="sidebar-link">
+                            <i className="fa-solid fa-user"></i> Usuarios
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </>

@@ -10,6 +10,7 @@ import CreateProducto from './components/Productos/CreateProducto';
 import ShowMenus from './components/Menu/ShowMenus';
 import EditMenu from './components/Menu/EditMenu';
 import EditProducto from './components/Productos/EditProducto';
+import ShowUsuarios from './components/Usuarios/ShowUsuarios';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
                     <Route path="/crearproducto" element={<CreateProducto />} />
                     <Route path="/menus" element={<ShowMenus />} />
                     <Route path="/edit-menu/:id_menu" element={<EditMenu />} /> 
+                    <Route path="/usuarios" element={<ShowUsuarios />} /> 
                     {/* Agrega más rutas según sea necesario */}
                 </Routes>
             </div>

@@ -67,6 +67,7 @@ const CreateProducto = () => {
 
         try {
             await postProducto(productoData);
+            console.log(productoData);
             Swal.fire('Producto creado!', 'El producto ha sido creado exitosamente', 'success');
             setProducto({
                 id_categoria: '',
