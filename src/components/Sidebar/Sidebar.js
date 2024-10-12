@@ -55,6 +55,11 @@ const Sidebar = () => {
                             <i className="fa-solid fa-user"></i> Usuarios
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/pedidos" className="sidebar-link">
+                            <i className="fa-solid fa-user"></i> Pedidos
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </>

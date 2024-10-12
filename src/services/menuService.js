@@ -1,7 +1,7 @@
 // menuService.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/products/menu/'; // Ajusta esto según sea necesario
+const API_URL = 'http://192.168.0.20:8000/products/menu/'; // Ajusta esto según sea necesario
 
 export const getMenus = async () => {
     return await axios.get(`${API_URL}menus/`);

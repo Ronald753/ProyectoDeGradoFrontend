@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/products/ingredientes/';
+const API_URL = 'http://192.168.0.20:8000/products/ingredientes/';
 
 // Función para obtener todos los ingredientes activos
 export const getIngredientes = async () => {

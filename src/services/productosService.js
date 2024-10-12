@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://127.0.0.1:8000/products/productos/';
+const baseUrl = 'http://192.168.0.20:8000/products/productos/';
 
 export const getProductos = async () => {
     return axios.get(`${baseUrl}actives/`);
